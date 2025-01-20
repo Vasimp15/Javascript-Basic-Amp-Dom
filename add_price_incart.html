@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .cart{
+            height: auto;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 35px;
+        }
+        .cart > .img{
+            height: 400px;
+            width: 400px;
+            /* border: 2px solid red; */
+            background-image: url(../IMG/shinchan.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .text > h1{
+            width: 400px;
+            font-size: 65px;
+            text-align: center;
+        }
+        .btn{
+            width: 400px;
+            text-align: center;
+        }
+        .btn > button{
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            font-size: 65px;
+            border-radius: 50%;
+        }
+        .price{
+            height: 100px;
+            width: 100px;
+            background-color: blanchedalmond;
+            font-size: 65px;
+            border-radius: 50%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <div class="img"></div>
+        <div class="text">
+            <h1 id="price"></h1>
+            <h1 id="calculated-price">Result : 0</h1>
+        </div>
+        <div class="btn">
+            <button class="btn-1" onclick="dec()">-</button>
+            <button class="btn-2" onclick="inc()">+</button>
+        </div>
+        <div class="cart">
+            <div class="btn"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var count = 0
+    var  price = document.getElementById("price")
+    price.innerHTML = count
+
+    var calculatedprice = document.getElementById("calculated-price")
+
+    price.innerHTML = count;
+    calculatedprice.innerHTML = "Result:" + count * 30;
+
+
+    function inc(){
+        count++
+        price.innerHTML = count
+        updateDisplay();
+    }
+    function dec(){
+        if(count > 0){
+            count--
+            price.innerHTML = count
+        }
+        updateDisplay();
+
+    }
+    function updateDisplay(){
+        price.innerHTML = count;
+        calculatedprice.innerHTML = "Result:" + count * 30;
+    }
+
+</script>
+</html>
